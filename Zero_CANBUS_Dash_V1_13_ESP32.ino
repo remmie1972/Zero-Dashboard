@@ -348,7 +348,11 @@ void processCanMessage()
 	{
 		memcpy(canID1C0, buf, 8);
 		// ?? byte 0 (fixed at 32)
-		// ?? byte 1 (fixed at 0)
+		// ?? byte 1 (fixed at 0 unless dash buttons are pressed)
+// 		if (bitRead(buf[1], 0) == 1) TopDisplayButtonPressed = true;
+// 		else TopDisplayButtonPressed = false;
+// 		if (bitRead(buf[1], 1) == 1) BottomDisplayButtonPressed = true;
+// 		else BottomDisplayButtonPressed = false;
 		DashTimeHours = buf[2];                                                              // byte 2 is Dash Time Hours
 		DashTimeMinutes = buf[3];                                                            // byte 3 is Dash Time Minutes
 		DashTimeSeconds = buf[4];                                                            // byte 4 is Dash Time Seconds
