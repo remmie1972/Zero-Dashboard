@@ -591,12 +591,9 @@ void processCanMessage()
 	{
 		memcpy(canID540, buf, 8);
 		ChargeMinutesToGo = buf[0] + 256* buf[1];// ?? byte 0 minutes to go for charging (possibly also byte 1 for values > 256 minutes
-		// ?? byte 2
-		// ?? byte 3
+		InstantWhPerKm = buf[2] * 0.01 + buf[3] * 2.56;
 		TripWhPerKm = buf[4] * 0.01 + buf[5] * 2.56;
-		// ?? byte 5
-		// ?? byte 6
-		// ?? byte 7
+		LifeWhPerKm = buf[6] * 0.01 + buf[7] * 2.56;
 	}
 	if (canId == 0x0588)
 	{
